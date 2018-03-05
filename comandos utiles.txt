@@ -1,0 +1,23 @@
+﻿**Construccion del jar para cada directorio**
+./gradlew.bat bootRepackage
+
+docker build -t jefftenelema/config-server .
+docker run -d --network tenelema.com --name configserver jefftenelema/config-server
+
+docker build -t jefftenelema/eurekaserver .
+docker run -d --network tenelema.com --name eurekaserver jefftenelema/eurekaserver
+
+***ERROR POR STARTER EUREKA???***
+docker build -t jefftenelema/microinstrument .
+docker run -d --network tenelema.com --name microinstrument jefftenelema/microinstrument
+
+docker build -t jefftenelema/microsinger .
+docker run -d --network tenelema.com --name microsinger jefftenelema/microsinger
+
+docker build -t jefftenelema/zuul .
+docker run -d --network tenelema.com --name zuul jefftenelema/zuul
+
+
+docker images
+docker push jefftenelema/zuul
+
